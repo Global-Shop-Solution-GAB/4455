@@ -1,0 +1,948 @@
+﻿Program.Sub.ScreenSU.Start
+Gui.FrmMaster..Create
+Gui.FrmMaster..Size(15435,10275)
+Gui.FrmMaster..MinX(15360)
+Gui.FrmMaster..MinY(9645)
+Gui.FrmMaster..Position(0,0)
+Gui.FrmMaster..BackColor(-2147483633)
+Gui.FrmMaster..MousePointer(0)
+Gui.FrmMaster..Event(UnLoad,FrmMaster_UnLoad)
+Gui.FrmMaster..Caption("Planning Dashboard")
+Gui.FrmMaster..Event(Resize,FrmMaster_Resize)
+Gui.FrmMaster.picGSSLogo.Create(PictureBox)
+Gui.FrmMaster.picGSSLogo.Size(4125,960)
+Gui.FrmMaster.picGSSLogo.Position(5520,45)
+Gui.FrmMaster.GsGCAll.Create(GsGridControl)
+Gui.FrmMaster.GsGCAll.Size(15195,6705)
+Gui.FrmMaster.GsGCAll.Position(30,1800)
+Gui.FrmMaster.GsGCAll.Event(RowCellClick,GsGCAll_RowCellClick)
+Gui.FrmMaster.txtBOM_Parent.Create(TextBox,"",True,1860,300,0,210,1275,False,0,"Arial",8,-2147483643,1)
+Gui.FrmMaster.txtBOM_Parent.Locked(True)
+Gui.FrmMaster.txtBOM_Description.Create(TextBox,"",True,3105,300,0,2970,1275,False,0,"Arial",8,-2147483643,1)
+Gui.FrmMaster.txtBOM_Description.Locked(True)
+Gui.FrmMaster.lblBOM_Parent.Create(Label,"BOM Parent",True,1935,255,0,195,1080,True,0,"Arial",8,-2147483633,0)
+Gui.FrmMaster.lblBOM_Description.Create(Label,"BOM Parent Description",True,1935,255,0,2985,1080,True,0,"Arial",8,-2147483633,0)
+Gui.FrmMaster.txtBOM_Extra.Create(TextBox,"",True,7695,300,0,6225,1275,False,0,"Arial",8,-2147483643,1)
+Gui.FrmMaster.txtBOM_Extra.Locked(True)
+Gui.FrmMaster.txtBOM_Rev.Create(TextBox,"",True,540,300,0,2235,1275,False,0,"Arial",8,-2147483643,1)
+Gui.FrmMaster.txtBOM_Rev.Locked(True)
+Gui.FrmMaster.txtBOM_Qty.Create(TextBox,"1",True,840,300,0,14070,1275,True,1,"Arial",8,65535,1)
+Gui.FrmMaster.txtBOM_Qty.NumericOnly(True)
+Gui.FrmMaster.txtBOM_Qty.DefaultValue("1")
+Gui.FrmMaster.txtBOM_Qty.Event(LostFocus,txtBOM_Qty_LostFocus)
+Gui.FrmMaster.lblBOM_Extra.Create(Label,"BOM Parent Extra Description",True,3405,255,0,6240,1080,True,0,"Arial",8,-2147483633,0)
+Gui.FrmMaster.lblBOM_Rev.Create(Label,"Parent Rev.",True,585,390,0,2220,945,True,0,"Arial",8,-2147483633,0)
+Gui.FrmMaster.lblBOM_Qty.Create(Label,"Parent Qty. Required",True,945,390,0,14070,945,True,0,"Arial",8,-2147483633,0)
+Gui.FrmMaster.cmdProcess.Create(Button)
+Gui.FrmMaster.cmdProcess.Size(1410,375)
+Gui.FrmMaster.cmdProcess.Position(13680,8745)
+Gui.FrmMaster.cmdProcess.Caption("Process")
+Gui.FrmMaster.cmdProcess.Event(Click,cmdProcess_Click)
+Gui.FrmMaster.frmCat.Create(Frame)
+Gui.FrmMaster.frmCat.Size(5385,510)
+Gui.FrmMaster.frmCat.Position(60,8625)
+Gui.FrmMaster.frmCat.Caption("Category:")
+Gui.FrmMaster.lblCat.Create(Label,"Blank - Normal | P - Phantom | X - eXclude | 1 - Setup | R - Reference",True,5265,255,0,120,255,True,0,"Arial",8,-2147483633,0)
+Gui.FrmMaster.lblCat.Parent("frmCat")
+Gui.FrmMaster.frmSource.Create(Frame)
+Gui.FrmMaster.frmSource.Size(7200,510)
+Gui.FrmMaster.frmSource.Position(5520,8625)
+Gui.FrmMaster.frmSource.Caption("Source:")
+Gui.FrmMaster.lblSource.Create(Label,"P - Purchase to Stock | J - Purchase to Job | M - Manufacture to Stock | F - Manufacture to Job",True,7110,255,0,120,255,True,0,"Arial",8,-2147483633,0)
+Gui.FrmMaster.lblSource.Parent("frmSource")
+Gui.FrmMaster.frmColors.Create(Frame)
+Gui.FrmMaster.frmColors.Size(5385,510)
+Gui.FrmMaster.frmColors.Position(60,9150)
+Gui.FrmMaster.frmColors.Caption("Colors:")
+Gui.FrmMaster.txtNonInv.Create(TextBox,"Not In Inventory",True,1290,300,0,690,150,True,0,"Arial",8,8034025,1)
+Gui.FrmMaster.txtNonInv.Parent("frmColors")
+Gui.FrmMaster.txtNonInv.Locked(True)
+Gui.FrmMaster.txtInput.Create(TextBox,"Input Field",True,1335,300,0,3840,150,True,0,"Arial",8,65535,1)
+Gui.FrmMaster.txtInput.Parent("frmColors")
+Gui.FrmMaster.txtInput.Locked(True)
+Gui.FrmMaster.txtNormal.Create(TextBox,"Part In Inventory",True,1335,300,0,2250,150,True,0,"Arial",8,-2147483643,1)
+Gui.FrmMaster.txtNormal.Parent("frmColors")
+Gui.FrmMaster.txtNormal.Locked(True)
+Gui.FrmMaster.cmdLinks.Create(Button)
+Gui.FrmMaster.cmdLinks.Size(1410,375)
+Gui.FrmMaster.cmdLinks.Position(13680,9210)
+Gui.FrmMaster.cmdLinks.Caption("Links")
+Gui.FrmMaster.cmdLinks.Event(Click,cmdLinks_Click)
+Gui.FrmMaster.cmdExport.Create(Button)
+Gui.FrmMaster.cmdExport.Size(1410,375)
+Gui.FrmMaster.cmdExport.Position(12165,9210)
+Gui.FrmMaster.cmdExport.Caption("Export")
+Gui.FrmMaster.cmdExport.Event(Click,cmdExport_Click)
+Gui.FrmLinks..Create
+Gui.FrmLinks..Caption("Document Links")
+Gui.FrmLinks..Size(8025,7620)
+Gui.FrmLinks..MinX(0)
+Gui.FrmLinks..MinY(0)
+Gui.FrmLinks..Position(0,0)
+Gui.FrmLinks..AlwaysOnTop(True)
+Gui.FrmLinks..BackColor(-2147483633)
+Gui.FrmLinks..MousePointer(0)
+Gui.FrmLinks..Event(UnLoad,FrmLinks_UnLoad)
+Gui.FrmLinks.GsGcLinks.Create(GsGridControl)
+Gui.FrmLinks.GsGcLinks.Size(7680,6045)
+Gui.FrmLinks.GsGcLinks.Position(45,330)
+Gui.FrmLinks.cmdLinkSave.Create(Button)
+Gui.FrmLinks.cmdLinkSave.Size(1200,375)
+Gui.FrmLinks.cmdLinkSave.Position(6525,6540)
+Gui.FrmLinks.cmdLinkSave.Caption("Save")
+Gui.FrmLinks.cmdLinkSave.Event(Click,cmdLinkSave_Click)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+	v.Global.bExists.Declare
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+F.Intrinsic.Control.SelectCase(v.Caller.Hook)
+	F.Intrinsic.Control.Case(16291)
+		F.Intrinsic.Control.If(V.Passed.000001.Trim,<>,"")
+			F.Intrinsic.Control.CallSub(loaddash)
+		F.Intrinsic.Control.Else
+			F.Intrinsic.Control.End
+
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Case(16300)
+		v.Passed.000214.Set("Planning")
+	F.Intrinsic.Control.Case(16360)
+		F.Intrinsic.Control.If(V.Passed.000001.Trim,<>,"")
+			F.Intrinsic.Control.CallSub(loaddash)
+		F.Intrinsic.Control.Else
+			F.Intrinsic.Control.End
+
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Case(16387)
+		v.Passed.000074.Set("Planning")
+F.Intrinsic.Control.EndSelect
+Program.Sub.Main.End
+
+Program.Sub.SetAnchors.Start
+	'0 - None
+	'1 - Top
+	'2 - Bottom
+	'4 - Left
+	'8 - Right
+
+	gui.FrmMaster.GsGCAll.Anchor(15)
+	gui.FrmMaster.picGSSLogo.Anchor(1)
+	gui.FrmMaster.cmdProcess.Anchor(10)
+	gui.FrmMaster.txtBOM_Qty.Anchor(9)
+	gui.FrmMaster.lblBOM_Qty.Anchor(9)
+	gui.FrmMaster.txtBOM_Rev.Anchor(5)
+	gui.FrmMaster.lblBOM_Rev.Anchor(5)
+	gui.FrmMaster.txtBOM_Extra.Anchor(13)
+	gui.FrmMaster.frmCat.Anchor(2)
+	gui.FrmMaster.frmColors.Anchor(2)
+	gui.FrmMaster.frmSource.Anchor(2)
+	gui.FrmMaster.cmdLinks.Anchor(10)
+	gui.FrmMaster.cmdExport.Anchor(10)
+
+Program.Sub.SetAnchors.End
+
+Program.Sub.FrmMaster_Resize.Start
+	'Let Form grow larger than 15375, but not lower
+	f.Intrinsic.Control.If(V.Screen.FrmMaster.Width,<,15360)
+		gui.FrmMaster..Size(15360,V.Screen.FrmMaster.Height)
+	f.Intrinsic.Control.EndIf
+Program.Sub.FrmMaster_Resize.End
+
+Program.Sub.FrmMaster_UnLoad.Start
+	f.ODBC.Connection!con.Close
+	gui.FrmMaster..Visible(False)
+	F.Intrinsic.Control.If(V.Caller.Hook,<>,16291)
+		F.Intrinsic.UI.Msgbox("Please Refresh the BOM Before Continuing","Planning Dashboard")
+	F.Intrinsic.Control.EndIf
+	f.Intrinsic.Control.End
+
+Program.Sub.FrmMaster_UnLoad.End
+
+Program.Sub.LoadDataTable.Start
+	v.Local.iExtended.Declare(Float)
+	v.Local.iFor.Declare
+	v.Local.iLast.Declare
+	v.Local.iLevel.Declare
+	v.Local.iQty.Declare(Float)
+	v.Local.sLastPart.Declare
+	v.Local.sParent.Declare
+	v.Local.sSQL.Declare
+
+	F.Intrinsic.Control.If(V.Caller.Hook,=,"16291")
+		F.Intrinsic.String.GSSPartString(V.Passed.000001,V.Passed.000073,V.Local.sParent)
+	F.Intrinsic.Control.Else
+		F.Intrinsic.String.GSSPartString(V.Passed.000001,V.Passed.000093,V.Local.sParent)
+	F.Intrinsic.Control.EndIf
+
+	F.Intrinsic.String.Trim(v.Local.sParent,v.Local.sParent)
+	v.Local.iExtended.Set(1)
+
+	F.Intrinsic.UI.InvokeWaitDialog("Loading Data","Planning Dashboard")
+
+	' Load the master BOM
+	f.Intrinsic.String.Build("select '1' as LEVEL, rtrim(PARENT) as PARENT, rtrim(PART) as PART, SEQUENCE_BOM, QUANTITY, CONVERT(QUANTITY,SQL_FLOAT) as EXTENDED_QTY, CATEGORY, (select case when SOURCE = '' then 'J' else SOURCE end)as SOURCE, UM_INVENTORY from "BOM_MSTR" where PARENT = '{1}' and PARENT <> PART and SEQUENCE_BOM <> '0000'",v.Local.iExtended,V.Local.sParent,V.Local.sSQL)
+	f.Data.DataTable.CreateFromSQL("BOM","con",v.Local.sSQL,True)
+
+	' Load the child BOM's
+	f.Intrinsic.Control.For(v.Local.iFor,0,v.DataTable.BOM.rowcount--,1)
+		f.Intrinsic.UI.ChangeWaitStatus("Loading Child Bills of Materials",v.Local.iFor,0,v.DataTable.BOM.rowcount--)
+		f.Intrinsic.Math.Add(1,v.DataTable.BOM(v.Local.iFor).LEVEL!FIELDVALTRIM,v.Local.iLevel)
+		f.Intrinsic.String.Build("select '{0}' as LEVEL, rtrim(PARENT) as PARENT, rtrim(PART) as PART, SEQUENCE_BOM, QUANTITY, CONVERT({1}*QUANTITY,SQL_FLOAT) as EXTENDED_QTY, CATEGORY, (select case when SOURCE = '' then 'J' else SOURCE end)as SOURCE, UM_INVENTORY from "BOM_MSTR" where PARENT = '{2}' and PARENT <> PART and SEQUENCE_BOM <> '0000'",v.Local.iLevel,v.DataTable.BOM(V.Local.iFor).EXTENDED_QTY!FIELDVALTRIM,v.DataTable.BOM(v.Local.iFor).PART!FIELDVALTRIM,V.Local.sSQL)
+		f.Data.DataTable.CreateFromSQL("TEMP","con",v.Local.sSQL,True)
+		f.Intrinsic.Control.If(v.DataTable.TEMP.rowcount,>,0)
+			f.Data.DataTable.Merge("TEMP","BOM",True,4)
+		f.Intrinsic.Control.EndIf
+		f.Data.DataTable.DeleteRow("TEMP")
+		f.Data.DataTable.Close("TEMP")
+	f.Intrinsic.Control.Next(v.Local.iFor)
+
+	' Consolidate Quantities
+	f.Data.DataView.Create("BOM","vBOM",22,"","PART ASC")
+	f.Data.DataView.ToDataTable("BOM","vBOM","BOM_TEMP",True)
+	f.Data.DataView.Create("BOM_TEMP","vBOM_TEMP")
+	f.Data.DataTable.DeleteRow("BOM")
+	f.Data.DataTable.Close("BOM")
+	f.Data.DataView.ToDataTable("BOM_TEMP","vBOM_TEMP","BOM",True)
+	f.Data.DataView.Close("BOM_TEMP","vBOM_TEMP")
+	f.Data.DataTable.DeleteRow("BOM_TEMP")
+	f.Data.DataTable.Close("BOM_TEMP")
+	v.Local.sLastPart.Set("")
+	f.Intrinsic.Control.For(V.Local.iFor,V.DataTable.BOM.ROWCOUNT--,0,-1)
+		f.Intrinsic.UI.ChangeWaitStatus("Consolidating Children",v.Local.iFor,v.DataTable.BOM.RowCount--,0)
+		f.Intrinsic.Control.If(v.Local.sLastPart,=,v.DataTable.BOM(v.Local.iFor).PART!FIELDVALTRIM)
+			f.Intrinsic.Math.Add(v.Local.iFor,1,v.Local.iLast)
+			f.Intrinsic.Math.Add(v.DataTable.BOM(v.Local.iLast).EXTENDED_QTY!FIELDVALTRIM,v.DataTable.BOM(v.Local.iFor).EXTENDED_QTY!FIELDVALTRIM,v.Local.iQty)
+			f.Data.DataTable.SetValue("BOM",v.Local.iFor,"EXTENDED_QTY",v.Local.iQty)
+			f.Data.DataTable.DeleteRow("BOM",v.Local.iLast)
+		f.Intrinsic.Control.EndIf
+		v.Local.sLastPart.Set(v.DataTable.BOM(V.Local.iFor).PART!FIELDVALTRIM)
+	f.Intrinsic.Control.Next(V.Local.iFor)
+
+	' Add the columns for Document Link, Complete, Description, Extra Description, Product Line, Group Code, and Lead Time
+	f.Data.DataTable.AddColumn("BOM","LINK","STRING")
+	F.Data.DataTable.AddColumn("BOM","COMPLETE","Boolean")
+	F.Data.DataTable.AddColumn("BOM","DESCRIPTION","STRING")
+	F.Data.DataTable.AddColumn("BOM","EXTRA_DESC","STRING")
+	F.Data.DataTable.AddColumn("BOM","PL","STRING")
+	F.Data.DataTable.AddColumn("BOM","GROUP","STRING")
+	F.Data.DataTable.AddColumn("BOM","LEAD_TIME","STRING")
+	F.Data.DataTable.AddColumn("BOM","QTY_ONHAND","FLOAT")
+	F.Data.DataTable.AddColumn("BOM","QTY_NET","FLOAT")
+	F.Data.DataTable.AddColumn("BOM","INV","STRING")
+	F.Data.DataTable.AddColumn("BOM","NOTES","STRING")
+	F.Data.DataTable.AddColumn("BOM","RTR_COMP","BOOLEAN")
+
+	' Create a dictionary for each of the new columns and fill the BOM table for each
+	f.Intrinsic.UI.ChangeWaitStatus("Filling Data from Dictionaries",0,0,100)
+	v.Local.sSQL.Set("select RTRIM(ID) as 'ID', 'Link' AS 'LINK' from V_LINK_DATA where TYPE = '00030'")
+	F.Data.Dictionary.CreateFromSQL("LINK","con",v.Local.sSQL,2)
+	f.Data.Dictionary.SetDefaultReturn("LINK","")
+	F.Data.DataTable.FillFromDictionary("BOM","LINK","PART","LINK")
+
+	f.Intrinsic.UI.ChangeWaitStatus("Filling Data from Dictionaries",10,0,100)
+	f.Intrinsic.String.Build("select rtrim(PART) as PART, COMPLETE, NOTES from GAB_PLANNING_DASH where PARENT = '{0}'",v.Local.sParent,v.Local.sSQL)
+	f.Data.DataTable.CreateFromSQL("TEMP","con",v.Local.sSQL,True)
+	f.Data.Dictionary.CreateFromDataTable("COMPLETE","TEMP","PART","COMPLETE")
+	f.Data.Dictionary.SetDefaultReturn("COMPLETE",FALSE)
+	f.Data.DataTable.FillFromDictionary("BOM","COMPLETE","PART","COMPLETE")
+	f.Data.Dictionary.CreateFromDataTAble("NOTES","TEMP","PART","NOTES")
+	f.Data.Dictionary.SetDefaultReturn("NOTES","")
+	f.Data.DataTable.FillFromDictionary("BOM","NOTES","PART","NOTES")
+	f.Data.DataTable.DeleteRow("TEMP")
+	f.Data.DataTable.Close("TEMP")
+
+	f.Intrinsic.UI.ChangeWaitStatus("Filling Data from Dictionaries",20,0,100)
+	V.Local.sSQL.Set("select rtrim(PART) as PART, DESCRIPTION, PRODUCT_LINE, TIME_MATERIAL_LEAD, QTY_ONHAND ,(QTY_ONHAND + QTY_ONORDER_PO + QTY_ONORDER_WO - QTY_REQUIRED) AS QTY_NET, 'Y' AS 'INV' from V_INVENTORY_ALL")
+	f.Data.DataTable.CreateFromSQL("TEMP","con",v.Local.sSQL,True)
+	f.Data.Dictionary.CreateFromDataTable("DESCRIPTION","TEMP","PART","DESCRIPTION",2)
+	F.Data.Dictionary.SetDefaultReturn("DESCRIPTION","")
+	f.Data.DataTable.FillFromDictionary("BOM","DESCRIPTION","PART","DESCRIPTION")
+
+	F.Intrinsic.UI.ChangeWaitStatus("Filling Data from Dictionaries",30,0,100)
+	F.Data.Dictionary.CreateFromDataTable("PL","TEMP","PART","PRODUCT_LINE")
+	F.Data.Dictionary.SetDefaultReturn("PL","")
+	F.Data.DataTable.FillFromDictionary("BOM","PL","PART","PL")
+
+	f.Intrinsic.UI.ChangeWaitStatus("Filling Data from Dictionaries",40,0,100)
+	f.Data.Dictionary.CreateFromDataTable("LEADTIME","TEMP","PART","TIME_MATERIAL_LEAD",2)
+	f.Data.Dictionary.SetDefaultReturn("LEADTIME","0")
+	F.Data.DataTable.FillFromDictionary("BOM","LEADTIME","PART","LEAD_TIME")
+
+	f.Intrinsic.UI.ChangeWaitStatus("Filling Data from Dictionaries",50,0,100)
+
+	F.Data.Dictionary.CreateFromDataTable("ONHAND","TEMP","PART","QTY_ONHAND")
+	F.Data.Dictionary.SetDefaultReturn("ONHAND","0")
+	F.Data.DataTable.FillFromDictionary("BOM","ONHAND","PART","QTY_ONHAND")
+	f.Data.Dictionary.CreateFromDataTable("NET","TEMP","PART","QTY_NET")
+	f.Data.Dictionary.SetDefaultReturn("NET","0")
+	f.Data.DataTable.FillFromDictionary("BOM","NET","PART","QTY_NET")
+
+	f.Intrinsic.UI.ChangeWaitStatus("Filling Data from Dictionaries",60,0,100)
+	f.Data.Dictionary.CreateFromDataTable("INV","TEMP","PART","INV")
+	f.Data.Dictionary.SetDefaultReturn("INV","N")
+	f.Data.DataTable.FillFromDictionary("BOM","INV","PART","INV")
+
+	f.Data.DataTable.DeleteRow("TEMP")
+	f.Data.DataTable.Close("TEMP")
+
+	f.Intrinsic.UI.ChangeWaitStatus("Filling Data from Dictionaries",70,0,100)
+	V.Local.sSQL.Set("select rtrim(PART) as PART, PROJECT_GROUP from V_INVENTORY_MST3")
+	F.Data.Dictionary.CreateFromSQL("GROUP","con",v.Local.sSQL,2)
+	f.Data.Dictionary.SetDefaultReturn("GROUP","")
+	f.Data.DataTable.FillFromDictionary("BOM","GROUP","PART","GROUP")
+
+	V.Local.sSQL.Set("select RTRIM(RTR_NUM) as PART, COMPLETE from V_ROUTER_SUPP")
+	f.Data.Dictionary.CreateFromSQL("RTR_COMP","con",V.Local.sSQL,2)
+	f.Data.Dictionary.SetDefaultReturn("RTR_COMP",False)
+	f.Data.DataTable.FillFromDictionary("BOM","RTR_COMP","PART","RTR_COMP")
+
+	' Add the Part Total Quantity
+	f.Intrinsic.UI.ChangeWaitStatus("Filling Data from Dictionaries",80,0,100)
+	f.Data.DataTable.AddColumn("BOM","SCREEN_QTY","Float")
+	f.Data.DataTable.SetValue("BOM",-1,"SCREEN_QTY",V.Screen.FrmMaster!txtBOM_Qty.Text)
+	f.Data.DataTable.AddExpressionColumn("BOM","DISPLAY_QTY","Float","EXTENDED_QTY * SCREEN_QTY")
+
+	' Add the Display Part
+	f.Data.DataTable.AddExpressionColumn("BOM","DISPLAY_PART","string","substring(PART,1,17)")
+
+	' Add the Display Revision
+	f.Data.DataTable.AddExpressionColumn("BOM","DISPLAY_REV","string","substring(PART,18,3)")
+
+	' Change the parent to the main parent
+	f.Intrinsic.UI.ChangeWaitStatus("Filling Data from Dictionaries",90,0,100)
+	f.Data.DataTable.SetValue("BOM",-1,"PARENT",v.Local.sParent)
+
+	' Remove the BOM sequence column
+	f.Data.DataTable.RemoveColumn("BOM","SEQUENCE_BOM")
+	f.Data.DataTable.RemoveColumn("BOM","QUANTITY")
+	f.Data.DataTable.RemoveColumn("BOM","LEVEL")
+
+	' Fill in the Extra Description
+	f.Intrinsic.Control.For(v.Local.iFor,0,v.DataTable.BOM.rowcount--,1)
+		F.Intrinsic.UI.ChangeWaitStatus("Filling in Extra Descriptions",v.Local.iFor,0,v.DataTable.BOM.rowcount--)
+		f.Intrinsic.String.Build("select top 1 TEXT from V_INV_EXTRA_TEXT where PART = '{0}'",v.DataTable.BOM(v.Local.iFor).PART!FieldValTrim,v.Local.sSQL)
+		f.ODBC.Connection!con.OpenLocalRecordsetRO("rstSel",v.Local.sSQL)
+		f.Intrinsic.Control.If(v.ODBC.con!rstSel.EOF,=,False)
+			f.Data.DataTable.SetValue("BOM",v.Local.iFor,"EXTRA_DESC",v.ODBC.con!rstSel.FieldValTrim!TEXT)
+		f.Intrinsic.Control.EndIf
+		f.ODBC.con!rstSel.Close
+	f.Intrinsic.Control.Next(v.Local.iFor)
+
+
+Program.Sub.LoadDataTable.End
+
+Program.Sub.LoadDataGrid.Start
+	v.Local.bInstr.Declare
+	v.Local.iFor.Declare
+	v.Local.iLen.Declare
+	v.Local.sRet.Declare
+	v.Local.sSQL.Declare
+
+	f.Intrinsic.UI.ChangeWaitStatus("Loading Grid",0,0,100)
+	f.Data.DataView.Create("BOM","vBOM")
+	f.Data.DataView.SetSort("BOM","vBOM","PART ASC")
+	gui.FrmMaster.GsGCAll.AddGridviewFromDataview("gvall","BOM","vBOM")
+
+	Gui.FrmMaster.GsGCAll.SetGridViewProperty("gvall","MultiSelect",False)
+	Gui.FrmMaster.GsGCAll.SetGridViewProperty("gvall","AllowSort",True)
+	Gui.FrmMaster.GsGCAll.SetGridViewProperty("gvall","AllowFilter",True)
+	Gui.FrmMaster.GsGCAll.SetGridViewProperty("gvall","OptionsDetailShowDetailTabs",False)
+	Gui.FrmMaster.GsGCAll.SetGridViewProperty("gvall","OptionsViewShowGroupPanel",True)
+
+	F.Global.Security.GetUserGroups(v.Caller.User,v.Local.sRet)
+	F.Intrinsic.String.Instr(v.Local.sRet,"PLANNING",0,v.Local.bInstr)
+	F.Intrinsic.Control.If(V.Local.bInstr,=,FALSE)
+		GUI.FrmMaster.GsGCAll.SetGridviewProperty("gvall","Editable",False)
+		GUI.FrmMaster.GsGCAll.SetGridviewProperty("gvall","ReadOnly",True)
+		GUI.FrmMaster.cmdProcess.Enabled(0)
+	F.Intrinsic.Control.ElseIf(V.Caller.Hook,=,16291)
+		GUI.FrmMaster.GsGCAll.SetGridviewProperty("gvall","Editable",False)
+		GUI.FrmMaster.GsGCAll.SetGridviewProperty("gvall","ReadOnly",True)
+		GUI.FrmMaster.cmdProcess.Enabled(0)
+	F.Intrinsic.Control.EndIf
+
+	' Set Caption
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","LINK","Caption"," ")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","COMPLETE","Caption","Complete")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","DISPLAY_PART","Caption","Part Number")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","DISPLAY_REV","Caption","Rev")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","DESCRIPTION","Caption","Description")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","EXTRA_DESC","Caption","Extra Description")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","PL","Caption","PL")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","DISPLAY_QTY","Caption","Qty. Req'd")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","UM_INVENTORY","Caption","UOM")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","SOURCE","Caption","Source")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","CATEGORY","Caption","Cat.")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","GROUP","Caption","Cost Code")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","LEAD_TIME","Caption","Lead Time")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","QTY_NET","Caption","Net Qty")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","QTY_ONHAND","Caption","On Hand")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","NOTES","Caption","Notes")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","RTR_COMP","Caption","Rtr. Comp.")
+
+	' Set Header Alignment
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","LINK","HeaderHAlignment","Center")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","COMPLETE","HeaderHAlignment","Center")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","DISPLAY_PART","HeaderHAlignment","Center")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","DISPLAY_REV","HeaderHAlignment","Center")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","DESCRIPTION","HeaderHAlignment","Center")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","EXTRA_DESC","HeaderHAlignment","Center")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","PL","HeaderHAlignment","Center")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","DISPLAY_QTY","HeaderHAlignment","Center")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","UM_INVENTORY","HeaderHAlignment","Center")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","SOURCE","HeaderHAlignment","Center")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","CATEGORY","HeaderHAlignment","Center")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","GROUP","HeaderHAlignment","Center")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","LEAD_TIME","HeaderHAlignment","Center")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","QTY_NET","HeaderHAlignment","Center")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","QTY_ONHAND","HeaderHAlignment","Center")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","NOTES","HeaderHAlignment","Center")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","RTR_COMP","HeaderHAlignment","Center")
+
+	' Set Header Bold
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","LINK","HeaderFontBold",True)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","COMPLETE","HeaderFontBold",True)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","DISPLAY_PART","HeaderFontBold",True)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","DISPLAY_REV","HeaderFontBold",True)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","DESCRIPTION","HeaderFontBold",True)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","EXTRA_DESC","HeaderFontBold",True)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","PL","HeaderFontBold",True)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","DISPLAY_QTY","HeaderFontBold",True)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","UM_INVENTORY","HeaderFontBold",True)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","SOURCE","HeaderFontBold",True)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","CATEGORY","HeaderFontBold",True)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","GROUP","HeaderFontBold",True)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","LEAD_TIME","HeaderFontBold",True)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","QTY_NET","HeaderFontBold",True)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","QTY_ONHAND","HeaderFontBold",True)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","NOTES","HeaderFontBold",True)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","RTR_COMP","HeaderFontBold",True)
+
+	' Set Order
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","LINK","VisibleIndex","0")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","DISPLAY_PART","VisibleIndex","1")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","DISPLAY_REV","VisibleIndex","2")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","DESCRIPTION","VisibleIndex","3")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","EXTRA_DESC","VisibleIndex","4")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","PL","VisibleIndex","5")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","UM_INVENTORY","VisibleIndex","6")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","RTR_COMP","VisibleIndex","7")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","DISPLAY_QTY","VisibleIndex","8")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","QTY_ONHAND","VisibleIndex","9")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","QTY_NET","VisibleIndex","10")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","CATEGORY","VisibleIndex","11")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","SOURCE","VisibleIndex","12")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","LEAD_TIME","VisibleIndex","13")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","GROUP","VisibleIndex","14")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","COMPLETE","VisibleIndex","15")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","NOTES","VisibleIndex","16")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","PARENT","VisibleIndex","17")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","PART","VisibleIndex","18")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","EXTENDED_QTY","VisibleIndex","19")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","SCREEN_QTY","VisibleIndex","20")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","INV","VisibleIndex","21")
+
+	' Hide Uneccesary columns
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","PARENT","Visible",False)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","PART","Visible",False)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","EXTENDED_QTY","Visible",False)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","SCREEN_QTY","Visible",False)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","INV","Visible",False)
+
+	' Set AllowEdit
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","LINK","AllowEdit",False)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","COMPLETE","AllowEdit",True)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","DISPLAY_PART","AllowEdit",False)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","DISPLAY_REV","AllowEdit",False)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","DESCRIPTION","AllowEdit",False)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","EXTRA_DESC","AllowEdit",False)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","PL","AllowEdit",False)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","DISPLAY_QTY","AllowEdit",False)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","UM_INVENTORY","AllowEdit",False)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","SOURCE","AllowEdit",True)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","CATEGORY","AllowEdit",True)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","GROUP","AllowEdit",True)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","LEAD_TIME","AllowEdit",True)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","QTY_NET","AllowEdit",False)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","QTY_ONHAND","AllowEdit",False)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","NOTES","AllowEdit",True)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","RTR_COMP","AllowEdit",False)
+
+	' Set ReadOnly
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","LINK","ReadOnly",True)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","COMPLETE","ReadOnly",False)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","DISPLAY_PART","ReadOnly",True)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","DISPLAY_REV","ReadOnly",True)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","DESCRIPTION","ReadOnly",True)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","EXTRA_DESC","ReadOnly",True)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","PL","ReadOnly",True)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","DISPLAY_QTY","ReadOnly",True)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","UM_INVENTORY","ReadOnly",True)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","SOURCE","ReadOnly",False)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","CATEGORY","ReadOnly",False)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","GROUP","ReadOnly",False)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","LEAD_TIME","ReadOnly",False)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","QTY_NET","ReadOnly",True)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","QTY_ONHAND","ReadOnly",True)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","NOTES","ReadOnly",False)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","RTR_COMP","ReadOnly",True)
+
+	' Set MinWidth
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","LINK","MinWidth","30")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","DISPLAY_PART","MinWidth","100")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","DISPLAY_REV","MinWidth","30")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","DESCRIPTION","MinWidth","100")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","EXTRA_DESC","MinWidth","100")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","PL","MinWidth","30")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","UM_INVENTORY","MinWidth","40")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","DISPLAY_QTY","MinWidth","70")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","QTY_ONHAND","MinWidth","60")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","QTY_NET","MinWidth","60")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","CATEGORY","MinWidth","30")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","SOURCE","MinWidth","50")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","LEAD_TIME","MinWidth","70")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","GROUP","MinWidth","70")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","COMPLETE","MinWidth","60")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","NOTES","MinWidth","100")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","RTR_COMP","MinWidth","70")
+
+	' Set MaxWidth
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","LINK","MaxWidth","30")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","DISPLAY_PART","MaxWidth","100")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","DISPLAY_REV","MaxWidth","30")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","DESCRIPTION","MaxWidth","300")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","PL","MaxWidth","30")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","UM_INVENTORY","MaxWidth","40")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","DISPLAY_QTY","MaxWidth","70")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","QTY_ONHAND","MaxWidth","60")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","QTY_NET","MaxWidth","60")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","CATEGORY","MaxWidth","30")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","SOURCE","MaxWidth","50")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","LEAD_TIME","MaxWidth","70")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","GROUP","MaxWidth","70")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","COMPLETE","MaxWidth","60")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","RTR_COMP","MaxWidth","70")
+
+	' AllowFocus
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","LINK","AllowFocus",False)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","COMPLETE","AllowFocus",True)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","DISPLAY_PART","AllowFocus",False)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","DISPLAY_REV","AllowFocus",False)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","DESCRIPTION","AllowFocus",False)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","EXTRA_DESC","AllowFocus",False)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","PL","AllowFocus",False)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","DISPLAY_QTY","AllowFocus",False)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","UM_INVENTORY","AllowFocus",False)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","SOURCE","AllowFocus",True)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","CATEGORY","AllowFocus",True)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","GROUP","AllowFocus",True)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","LEAD_TIME","AllowFocus",True)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","QTY_NET","AllowFocus",False)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","QTY_ONHAND","AllowFocus",False)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","RTR_COMP","AllowFocus",False)
+
+	' TabStop
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","LINK","TabStop",False)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","COMPLETE","TabStop",True)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","DISPLAY_PART","TabStop",False)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","DISPLAY_REV","TabStop",False)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","DESCRIPTION","TabStop",False)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","EXTRA_DESC","TabStop",False)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","PL","TabStop",False)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","DISPLAY_QTY","TabStop",False)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","UM_INVENTORY","TabStop",False)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","SOURCE","TabStop",True)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","CATEGORY","TabStop",True)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","GROUP","TabStop",True)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","LEAD_TIME","TabStop",True)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","QTY_NET","TabStop",False)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","QTY_ONHAND","TabStop",False)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","NOTES","TabStop",True)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","RTR_COMP","TabStop",False)
+
+	' Set Editable Column Background Color
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","CATEGORY","HeaderBackColor","Yellow")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","SOURCE","HeaderBackColor","Yellow")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","GROUP","HeaderBackColor","Yellow")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","LEAD_TIME","HeaderBackColor","Yellow")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","COMPLETE","HeaderBackColor","Yellow")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","NOTES","HeaderBackColor","Yellow")
+
+	' Set link formatting
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","LINK","CellForeColor","Blue")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","LINK","CellFontUnderline",True)
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","DISPLAY_PART","CellForeColor","Blue")
+	gui.FrmMaster.GsGCAll.SetColumnProperty("gvall","DISPLAY_PART","CellFontUnderline",True)
+
+	' Set the drop down list for Source
+	gui.FrmMaster.GsGCAll.ColumnEdit("gvall","SOURCE","dropdownlist","P*!*J*!*M*!*F")
+
+	' Set the drop down list for Category
+	gui.FrmMaster.GsGCAll.ColumnEdit("gvall","CATEGORY","dropdownlist","*!*P*!*X*!*1*!*R")
+
+	' Set the drop down list for Group
+	v.Local.sSQL.Set("select distinct F_GROUP from V_PROJECT_GROUP")
+	f.ODBC.Connection!con.ExecuteAndReturn(v.Local.sSQL,v.Local.sRet)
+	f.Intrinsic.String.Replace(v.Local.sRet,"#$#","",v.Local.sRet)
+	f.Intrinsic.String.Len(v.Local.sRet,v.Local.iLen)
+	f.Intrinsic.Math.Sub(v.Local.iLen,3,v.Local.iLen)
+	f.Intrinsic.String.Left(v.Local.sRet,v.Local.iLen,v.Local.sRet)
+	gui.FrmMaster.GsGCAll.ColumnEdit("gvall","GROUP","dropdownlist",v.Local.sRet)
+
+	' Loop through the grid and highlight lines in red that are not inventory, add Document Control Icons
+	f.Intrinsic.Control.For(v.Local.iFor,0,v.DataTable.BOM.rowcount--,1)
+		f.Intrinsic.UI.ChangeWaitStatus("Loading Grid",v.Local.iFor,0,100)
+		f.Intrinsic.Control.If(v.DataTable.BOM(v.Local.iFor).INV!FieldValTrim,=,"N")
+			gui.FrmMaster.GsGCAll.SetRowAppearance("gvall",v.Local.iFor,"BackColor","DarkSalmon")
+		f.Intrinsic.Control.EndIf
+		f.Intrinsic.Control.If(v.DataTable.BOM(v.Local.iFor).LINK!FieldValTrim,=,"LINK")
+			gui.FrmMaster.GsGCAll.SetCellAppearance("gvall",0,v.Local.iFor,"Icon","DCS-ON")
+		f.Intrinsic.Control.Else
+'			gui.FrmMaster.GsGCAll.SetCellAppearance("gvall",0,v.Local.iFor,"Icon","DCS-OFF")
+		f.Intrinsic.Control.EndIf
+	f.Intrinsic.Control.Next(v.Local.iFor)
+
+	gui.FrmMaster.GsGCAll.MainView("gvall")
+
+Program.Sub.LoadDataGrid.End
+
+Program.Sub.loadBOMHeader.Start
+	v.Local.sParent.Declare
+	v.Local.sSQL.Declare
+
+	F.Intrinsic.Control.If(V.Caller.Hook,=,"16291")
+		F.Intrinsic.String.GSSPartString(V.Passed.000001,V.Passed.000073,V.Local.sParent)
+	F.Intrinsic.Control.Else
+		F.Intrinsic.String.GSSPartString(V.Passed.000001,V.Passed.000093,V.Local.sParent)
+	F.Intrinsic.Control.EndIf
+	F.Intrinsic.String.Trim(v.Local.sParent,v.Local.sParent)
+
+	f.Intrinsic.String.Build("select substring(A.PART,1,17) as PART, substring(A.PART,18,3) as REV, A.DESCRIPTION, B.TEXT from V_INVENTORY_ALL A left outer join V_INV_EXTRA_TEXT B on A.PART = B.PART where A.PART = '{0}'",V.Local.sParent,V.Local.sSQL)
+
+	f.ODBC.Connection!con.OpenLocalRecordsetRO("rstSel",v.Local.sSQL)
+	f.Intrinsic.Control.If(v.ODBC.con!rstSel.EOF,=,True)
+		gui.FrmMaster.txtBOM_Parent.Text(v.Local.sParent)
+	f.Intrinsic.Control.Else
+		gui.FrmMaster.txtBOM_Parent.Text(v.ODBC.con!rstSel.FieldValTrim!PART)
+		gui.FrmMaster.txtBOM_Rev.Text(v.ODBC.con!rstSel.FieldValTrim!REV)
+		gui.FrmMaster.txtBOM_Description.Text(v.ODBC.con!rstSel.FieldValTrim!DESCRIPTION)
+		gui.FrmMaster.txtBOM_Extra.Text(v.ODBC.con!rstSel.FieldValTrim!TEXT)
+	f.Intrinsic.Control.EndIf
+
+	f.ODBC.con!rstSel.Close
+
+Program.Sub.loadBOMHeader.End
+
+Program.Sub.txtBOM_Qty_LostFocus.Start
+	f.Data.DataTable.SetValue("BOM",-1,"SCREEN_QTY",v.Screen.FrmMaster!txtBOM_Qty.Text)
+Program.Sub.txtBOM_Qty_LostFocus.End
+
+Program.Sub.cmdProcess_Click.Start
+	v.Local.iFor.Declare
+	v.Local.iRet.Declare
+	v.Local.sSQL.Declare
+
+	' Write source, category, group, and complete to the database
+	f.Intrinsic.Control.For(v.Local.iFor,0,v.DataTable.BOM.rowcount--,1)
+		f.Intrinsic.Control.If(v.DataTable.BOM(v.Local.iFor).COMPLETE!FieldValTrim,=,True)
+			' Write the lead time to Inventory_MSTR.Time_Material_Lead
+			f.Intrinsic.String.Build("update INVENTORY_MSTR set TIME_MATERIAL_LEAD = '{0}' where PART = '{1}'",v.DataTable.BOM(v.Local.iFor).LEAD_TIME!FieldValTrim,v.DataTable.BOM(v.Local.iFor).PART!fieldvaltrim,v.Local.sSQL)
+			f.ODBC.Connection!con.Execute(v.Local.sSQL)
+			' Write source to Inventory_MST2.Code_Source
+			f.Intrinsic.String.Build("update INVENTORY_MST2 set CODE_SOURCE = '{0}' where PART = '{1}'",v.DataTable.BOM(v.Local.iFor).SOURCE!FieldValTrim,v.DataTable.BOM(v.Local.iFor).PART!fieldvaltrim,v.Local.sSQL)
+			f.ODBC.Connection!con.Execute(v.Local.sSQL)
+			' Write group code to Inventory_MST3.Project_Group
+			f.Intrinsic.String.Build("update INVENTORY_MST3 set PROJECT_GROUP = '{0}' where PART = '{1}'",v.DataTable.BOM(v.Local.iFor).GROUP!FieldValTrim,v.DataTable.BOM(v.Local.iFor).PART!FieldValTrim,v.Local.sSQL)
+			f.ODBC.Connection!con.Execute(v.Local.sSQL)
+			' Write the category and source to BOM_MSTR.CATEGORY and BOM_MSTR.SOURCE
+			f.Intrinsic.String.Build("update BOM_MSTR set CATEGORY = '{0}', SOURCE = '{1}' where PART = '{2}'",v.DataTable.BOM(v.Local.iFor).CATEGORY!FieldValTrim,v.DataTable.BOM(v.Local.iFor).SOURCE!FieldValTrim,v.DataTable.bom(v.Local.iFor).PART!FieldValTrim,v.Local.sSQL)
+			F.ODBC.Connection!con.Execute(V.Local.sSQL)
+		f.Intrinsic.Control.EndIf	
+	f.Intrinsic.Control.Next(v.Local.iFor)
+
+	' Write status to GAB_PLANNING_DASH
+	f.Data.DataTable.Create("ToGAB",True)
+	f.Data.DataTable.Merge("BOM","ToGAB",True,1)
+	f.Data.DataTable.RemoveColumn("ToGAB","DISPLAY_QTY")
+	f.Data.DataTable.RemoveColumn("ToGAB","SCREEN_QTY")
+	f.Data.DataTable.RemoveColumn("ToGAB","EXTENDED_QTY")
+	f.Data.DataTable.RemoveColumn("ToGAB","INV")
+	f.Data.DataTable.RemoveColumn("ToGAB","LINK")
+	f.Data.DataTable.RemoveColumn("ToGAB","CATEGORY")
+	f.Data.DataTable.RemoveColumn("ToGAB","SOURCE")
+	f.Data.DataTable.RemoveColumn("ToGAB","GROUP")
+	f.Data.DataTable.RemoveColumn("ToGAB","DISPLAY_PART")
+	f.Data.DataTable.RemoveColumn("ToGAB","DISPLAY_REV")
+	f.Data.DataTable.RemoveColumn("ToGAB","DESCRIPTION")
+	f.Data.DataTable.RemoveColumn("ToGAB","EXTRA_DESC")
+	f.Data.DataTable.RemoveColumn("ToGAB","UM_INVENTORY")
+	f.Data.DataTable.RemoveColumn("ToGAB","LEAD_TIME")
+	f.Data.DataTable.RemoveColumn("ToGAB","QTY_NET")
+	f.Data.DataTable.RemoveColumn("ToGAB","PL")
+	f.Data.DataTable.RemoveColumn("ToGAB","QTY_ONHAND")
+	f.Data.DataTable.RemoveColumn("ToGAB","RTR_COMP")
+	f.Intrinsic.Control.If(v.DataTable.ToGAB.rowcount,>,0)
+		f.Data.DataTable.SaveToDB("ToGAB","con","GAB_PLANNING_DASH","PARENT*!*PART",256)
+	f.Intrinsic.Control.EndIf
+	f.Data.DataTable.DeleteRow("ToGAB")
+	f.Data.DataTable.Close("ToGAB")
+
+
+	f.Intrinsic.UI.Msgbox("Do you wish to exit?","Planning Dashboard",4,v.Local.iRet)
+	f.Intrinsic.Control.If(v.Local.iRet,=,6)
+		f.Intrinsic.Control.CallSub(frmmaster_unload)
+	f.Intrinsic.Control.EndIf
+Program.Sub.cmdProcess_Click.End
+
+Program.Sub.GsGCAll_RowCellClick.Start
+	v.Local.iPID.Declare
+	V.Local.sParameters.Declare
+	v.Local.sPart.Declare
+	v.Local.sRev.Declare
+	v.Local.sValue.Declare
+
+	F.Intrinsic.Control.SelectCase(V.Args.Column)
+		F.Intrinsic.Control.Case("LINK")
+			gui.FrmMaster.GsGCAll.GetCellValueByColumnName("gvall","LINK",V.Args.RowIndex,v.Local.sValue)
+			f.Intrinsic.Control.If(v.Local.sValue,=,"LINK")
+				gui.FrmMaster.GsGCAll.GetCellValueByColumnName("gvall","PART",V.Args.RowIndex,v.Local.sPart)
+				f.Global.DocumentControl.Invoke(v.Local.sPart.Trim,"00030","Inventory Part ...",v.Local.iPID)
+			f.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.Case("DISPLAY_PART")
+			gui.FrmMaster.GsGCAll.GetCellValueByColumnName("gvall","PART",V.Args.RowIndex,v.Local.sPart)
+			gui.FrmMaster.GsGCAll.GetCellValueByColumnName("gvall","DISPLAY_REV",V.Args.RowIndex,v.Local.sRev)
+			F.Intrinsic.String.Build("{0}!*!",v.Local.sPart,v.Local.sParameters)
+			F.Global.General.CallWrapperSync(300011,v.Local.sParameters)
+	f.Intrinsic.Control.EndSelect
+
+Program.Sub.GsGCAll_RowCellClick.End
+
+Program.Sub.TableExists.Start
+	V.Local.bExists.Declare
+	V.Local.sSQL.Declare
+
+	F.ODBC.Connection!con.TableExists("GAB_PLANNING_DASH",V.Local.bExists)
+	F.Intrinsic.Control.If(V.Local.bExists,=,False)
+		V.Local.sSQL.Set("CREATE TABLE GAB_PLANNING_DASH( COMPLETE BIT NOT NULL , PARENT CHAR(20) NOT NULL , PART CHAR(20) NOT NULL, NOTES CHAR(250))")
+		F.ODBC.Connection!con.Execute(V.Local.sSQL)
+	F.Intrinsic.Control.EndIf
+Program.Sub.TableExists.End
+
+Program.Sub.LoadDash.Start
+	v.Local.bEditGrp.Declare
+	v.Local.bIssueGrp.Declare
+	v.Local.bWiptoFG.Declare
+	v.Local.sIcon.Declare
+	v.Local.sGssLogo.Declare
+
+	f.Intrinsic.String.Build("{0}\Art\gss2.ico",V.Caller.GlobalDir,v.Local.sIcon)
+	f.Intrinsic.String.Build("{0}\Art\GAB_GSS_Logo_Green_Dash.png",V.Caller.GlobalDir,V.Local.sGssLogo)
+	'Modified by Deni Y 11/25/20, turned off command(s) below since it's flagged as error by GABErrorScanner
+'	gui.frmWeb..Icon(V.Local.sIcon)
+	gui.FrmMaster..Icon(V.Local.sIcon)
+	gui.FrmMaster.picGSSLogo.Picture(V.Local.sGssLogo)
+
+	f.Intrinsic.Control.CallSub(setanchors)
+
+	f.ODBC.Connection!con.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+	f.Intrinsic.Control.CallSub(tableexists)
+	f.Intrinsic.Control.CallSub(loadbomheader)
+	f.Intrinsic.Control.CallSub(loaddatatable)
+	f.Intrinsic.Control.CallSub(loaddatagrid)
+
+	f.Intrinsic.UI.CloseWaitDialog
+	gui.FrmMaster..Show
+Program.Sub.LoadDash.End
+
+Program.Sub.cmdLinks_Click.Start
+V.Local.iFor.Declare
+V.Local.sFile.Declare
+V.Local.sGV.Declare
+V.Local.sLID.Declare
+V.Local.sParent.Declare
+V.Local.sPart.Declare
+V.Local.sProperty.Declare
+V.Local.sSQL.Declare
+
+F.Data.DataTable.Create("LINKS",TRUE)
+F.Data.DataTable.AddColumn("LINKS","SELECT","BOOLEAN")
+F.Data.DataTable.AddColumn("LINKS","PART","STRING")
+F.Data.DataTable.AddColumn("LINKS","REV","STRING")
+F.Data.DataTable.AddColumn("LINKS","DESCRIPTION","STRING")
+F.Data.DataTable.AddColumn("LINKS","EXTRA_DESC","STRING")
+F.Data.DataTable.AddColumn("LINKS","FILE","STRING")
+F.Data.DataTable.AddColumn("LINKS","PATH","STRING")
+
+F.Intrinsic.UI.InvokeWaitDialog("Loading Links","Planning Dashboard")
+
+F.Intrinsic.Control.For(V.Local.iFor,0,V.DataTable.BOM.ROWCOUNT--,1)
+	F.Intrinsic.UI.ChangeWaitStatus("Loading Links",V.Local.iFor,0,V.DataTable.BOM.ROWCOUNT--)
+	'Add Parent Link
+	F.Intrinsic.Control.If(V.Local.iFor,=,0)
+		F.Intrinsic.String.GSSPartString(V.Screen.FrmMaster!txtBOM_Parent.Text,V.Screen.FrmMaster!txtBOM_Rev.Text,V.Local.sParent)
+		F.Intrinsic.String.Build("select LINK_ID from V_LINK_DATA where ID = '{0}' and TYPE = '00030'",V.Local.sParent.Trim,V.Local.sSQL)
+		F.ODBC.Connection!con.OpenLocalRecordsetRO("rstLink",V.Local.sSQL)
+		F.Intrinsic.Control.If(V.ODBC.con!rstLink.EOF,=,False)
+			F.Intrinsic.String.LPad(V.ODBC.con!rstLink.FieldValTrim!LINK_ID,"0",9,V.Local.sLID)
+			F.Intrinsic.String.Build("select * from V_ATG_DOC_ASSOC where GRP_ID = 1 and LINK_ID = '{0}'",V.Local.sLID,V.Local.sSQL)
+			F.ODBC.Connection!con.OpenLocalRecordsetRO("rstSel",V.Local.sSQL)
+			F.Intrinsic.Control.DoUntil(V.ODBC.con!rstSel.EOF,=,True)
+				F.Data.DataTable.AddRow("LINKS","SELECT",False,"PART",V.Screen.FrmMaster!txtBOM_Parent.Text,"REV",V.Screen.FrmMaster!txtBOM_Rev.Text,"DESCRIPTION",V.Screen.FrmMaster!txtBOM_Description.Text,"EXTRA_DESC",V.Screen.FrmMaster!txtBOM_Extra.Text,"FILE",V.ODBC.con!rstSel.FieldValTrim!FILE,"PATH",V.ODBC.con!rstSel.FieldValTrim!PATH)
+				F.ODBC.con!rstSel.MoveNext
+			F.Intrinsic.Control.Loop
+			F.ODBC.con!rstSel.Close
+		F.Intrinsic.Control.EndIf
+		F.ODBC.con!rstLink.Close	
+	F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.If(V.DataTable.BOM(V.Local.iFor).LINK!FieldValTrim,<>,"")
+		gui.FrmMaster.GsGCAll.GetCellValueByColumnName("gvall","PART",V.Local.iFor,v.Local.sPart)
+		F.Intrinsic.String.Build("select LINK_ID from V_LINK_DATA where ID = '{0}' and TYPE = '00030'",V.DataTable.BOM(V.Local.iFor).PART!FieldValTrim,V.Local.sSQL)
+		F.ODBC.Connection!con.OpenLocalRecordsetRO("rstLink",V.Local.sSQL)
+		F.Intrinsic.Control.If(V.ODBC.con!rstLink.EOF,=,False)
+			F.Intrinsic.String.LPad(V.ODBC.con!rstLink.FieldValTrim!LINK_ID,"0",9,V.Local.sLID)
+			F.Intrinsic.String.Build("select * from V_ATG_DOC_ASSOC where GRP_ID = 1 and LINK_ID = '{0}'",V.Local.sLID,V.Local.sSQL)
+			F.ODBC.Connection!con.OpenLocalRecordsetRO("rstSel",V.Local.sSQL)
+			F.Intrinsic.Control.DoUntil(V.ODBC.con!rstSel.EOF,=,True)
+				F.Data.DataTable.AddRow("LINKS","SELECT",False,"PART",V.DataTable.BOM(V.Local.iFor).DISPLAY_PART!FieldValTrim,"REV",V.DataTable.BOM(V.Local.iFor).DISPLAY_REV!FieldValTrim,"DESCRIPTION",V.DataTable.BOM(V.Local.iFor).DESCRIPTION!FieldValTrim,"EXTRA_DESC",V.DataTable.BOM(V.Local.iFor).EXTRA_DESC!FieldValTrim,"FILE",V.ODBC.con!rstSel.FieldValTrim!FILE,"PATH",V.ODBC.con!rstSel.FieldValTrim!PATH)
+				F.ODBC.con!rstSel.MoveNext
+			F.Intrinsic.Control.Loop
+			F.ODBC.con!rstSel.Close
+		F.Intrinsic.Control.EndIf
+		F.ODBC.con!rstLink.Close
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Next(V.Local.iFor)
+
+F.Data.DataView.Create("LINKS","vLINKS")
+
+V.Local.sGV.Set("gvLinks")
+
+GUI.FrmLinks.GsGcLinks.AddGridviewFromDataview("gvLinks","LINKS","vLINKS")
+
+GUI.FrmLinks.GsGcLinks.SetGridviewProperty("gvLinks","ShowGroupPanel",False)
+GUI.FrmLinks.GsGcLinks.SetGridviewProperty("gvLinks","Editable",True)
+GUI.FrmLinks.GsGcLinks.SetGridviewProperty("gvLinks","ReadOnly",False)
+GUI.FrmLinks.GsGcLinks.SetGridviewProperty("gvLinks","MultiSelect",False)
+GUI.FrmLinks.GsGcLinks.SetGridviewProperty("gvLinks","AllowSort",True)
+GUI.FrmLinks.GsGcLinks.SetGridviewProperty("gvLinks","AllowFilter",False)
+
+V.Local.sProperty.Set("MinWidth")
+GUI.FrmLinks.GsGcLinks.SetColumnProperty(V.Local.sGV,"SELECT",V.Local.sProperty,30)
+GUI.FrmLinks.GsGcLinks.SetColumnProperty(V.Local.sGV,"PART",V.Local.sProperty,100)
+GUI.FrmLinks.GsGcLinks.SetColumnProperty(V.Local.sGV,"REV",V.Local.sProperty,30)
+GUI.FrmLinks.GsGcLinks.SetColumnProperty(V.Local.sGV,"FILE",V.Local.sProperty,150)
+
+V.Local.sProperty.Set("MaxWidth")
+GUI.FrmLinks.GsGcLinks.SetColumnProperty(V.Local.sGV,"SELECT",V.Local.sProperty,30)
+GUI.FrmLinks.GsGcLinks.SetColumnProperty(V.Local.sGV,"PART",V.Local.sProperty,100)
+GUI.FrmLinks.GsGcLinks.SetColumnProperty(V.Local.sGV,"REV",V.Local.sProperty,30)
+
+V.Local.sProperty.Set("ReadOnly")
+GUI.FrmLinks.GsGcLinks.SetColumnProperty(V.Local.sGV,"SELECT",V.Local.sProperty,FALSE)
+GUI.FrmLinks.GsGcLinks.SetColumnProperty(V.Local.sGV,"PART",V.Local.sProperty,TRUE)
+GUI.FrmLinks.GsGcLinks.SetColumnProperty(V.Local.sGV,"REV",V.Local.sProperty,TRUE)
+GUI.FrmLinks.GsGcLinks.SetColumnProperty(V.Local.sGV,"DESCRIPTION",V.Local.sProperty,TRUE)
+GUI.FrmLinks.GsGcLinks.SetColumnProperty(V.Local.sGV,"EXTRA_DESC",V.Local.sProperty,TRUE)
+GUI.FrmLinks.GsGcLinks.SetColumnProperty(V.Local.sGV,"FILE",V.Local.sProperty,TRUE)
+
+V.Local.sProperty.Set("AllowEdit")
+GUI.FrmLinks.GsGcLinks.SetColumnProperty(V.Local.sGV,"SELECT",V.Local.sProperty,TRUE)
+GUI.FrmLinks.GsGcLinks.SetColumnProperty(V.Local.sGV,"PART",V.Local.sProperty,FALSE)
+GUI.FrmLinks.GsGcLinks.SetColumnProperty(V.Local.sGV,"REV",V.Local.sProperty,FALSE)
+GUI.FrmLinks.GsGcLinks.SetColumnProperty(V.Local.sGV,"DESCRIPTION",V.Local.sProperty,FALSE)
+GUI.FrmLinks.GsGcLinks.SetColumnProperty(V.Local.sGV,"EXTRA_DESC",V.Local.sProperty,FALSE)
+GUI.FrmLinks.GsGcLinks.SetColumnProperty(V.Local.sGV,"FILE",V.Local.sProperty,FALSE)
+
+V.Local.sProperty.Set("Caption")
+GUI.FrmLinks.GsGcLinks.SetColumnProperty(V.Local.sGV,"SELECT",V.Local.sProperty," ")
+GUI.FrmLinks.GsGcLinks.SetColumnProperty(V.Local.sGV,"PART",V.Local.sProperty,"Part Number")
+GUI.FrmLinks.GsGcLinks.SetColumnProperty(V.Local.sGV,"REV",V.Local.sProperty,"Rev")
+GUI.FrmLinks.GsGcLinks.SetColumnProperty(V.Local.sGV,"DESCRIPTION",V.Local.sProperty,"Description")
+GUI.FrmLinks.GsGcLinks.SetColumnProperty(V.Local.sGV,"EXTRA_DESC",V.Local.sProperty,"Extra Description")
+GUI.FrmLinks.GsGcLinks.SetColumnProperty(V.Local.sGV,"FILE",V.Local.sProperty,"File")
+
+V.Local.sProperty.Set("HeaderHAlignment")
+GUI.FrmLinks.GsGcLinks.SetColumnProperty(V.Local.sGV,"SELECT",V.Local.sProperty,"Center")
+GUI.FrmLinks.GsGcLinks.SetColumnProperty(V.Local.sGV,"PART",V.Local.sProperty,"Center")
+GUI.FrmLinks.GsGcLinks.SetColumnProperty(V.Local.sGV,"REV",V.Local.sProperty,"Center")
+GUI.FrmLinks.GsGcLinks.SetColumnProperty(V.Local.sGV,"DESCRIPTION",V.Local.sProperty,"Center")
+GUI.FrmLinks.GsGcLinks.SetColumnProperty(V.Local.sGV,"EXTRA_DESC",V.Local.sProperty,"Center")
+GUI.FrmLinks.GsGcLinks.SetColumnProperty(V.Local.sGV,"FILE",V.Local.sProperty,"Center")
+
+V.Local.sProperty.Set("HeaderFontBold")
+GUI.FrmLinks.GsGcLinks.SetColumnProperty(V.Local.sGV,"SELECT",V.Local.sProperty,TRUE)
+GUI.FrmLinks.GsGcLinks.SetColumnProperty(V.Local.sGV,"PART",V.Local.sProperty,TRUE)
+GUI.FrmLinks.GsGcLinks.SetColumnProperty(V.Local.sGV,"REV",V.Local.sProperty,TRUE)
+GUI.FrmLinks.GsGcLinks.SetColumnProperty(V.Local.sGV,"DESCRIPTION",V.Local.sProperty,TRUE)
+GUI.FrmLinks.GsGcLinks.SetColumnProperty(V.Local.sGV,"EXTRA_DESC",V.Local.sProperty,TRUE)
+GUI.FrmLinks.GsGcLinks.SetColumnProperty(V.Local.sGV,"FILE",V.Local.sProperty,TRUE)
+
+GUI.FrmLinks.GsGcLinks.SetColumnProperty("gvLinks","PATH","Visible",False)
+
+GUI.FrmLinks.GsGcLinks.MainView("gvLinks")
+
+F.Intrinsic.UI.CloseWaitDialog
+
+GUI.FrmLinks.GsGcLinks.Anchor(15)
+GUI.FrmLinks.cmdLinkSave.Anchor(10)
+
+GUI.FrmLinks..Show
+Program.Sub.cmdLinks_Click.End
+
+Program.Sub.FrmLinks_UnLoad.Start
+F.Data.DataTable.DeleteRow("LINKS")
+F.Data.DataTable.Close("LINKS")
+gui.FrmLinks..Visible(0)
+Program.Sub.FrmLinks_UnLoad.End
+
+Program.Sub.cmdLinkSave_Click.Start
+V.Local.iFiles.Declare
+V.Local.iFor.Declare
+V.Local.sFileIn.Declare
+V.Local.sFileOut.Declare
+V.Local.sFilePath.Declare
+
+F.Intrinsic.UI.ShowSaveFileDialog("","*.PDF|*.PDF",V.Local.sFileOut)
+
+F.Intrinsic.Control.If(V.Local.sFileOut,<>,"***CANCEL***")
+	F.Intrinsic.Control.For(V.Local.iFor,0,V.DataTable.LINKS.RowCount--,1)
+		F.Intrinsic.Control.If(V.DataTable.LINKS(V.Local.iFor).SELECT!FieldVal,=,True)
+			F.Intrinsic.String.Concat(V.DataTable.LINKS(V.Local.iFor).PATH!FieldValTrim,V.DataTable.LINKS(V.Local.iFor).FILE!FieldValTrim,V.Local.sFilePath)
+			F.Intrinsic.Control.If(V.Local.sFileIn.Trim,=,"")
+				V.Local.sFileIn.Set(V.Local.sFilePath)
+				V.Local.iFiles.Set(1)
+			F.Intrinsic.Control.Else
+				F.Intrinsic.String.Concat(V.Local.sFileIn,"*!*",V.Local.sFilePath,V.Local.sFileIn)
+				V.Local.iFiles.Set(V.Local.iFiles.++)
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Next(V.Local.iFor)
+
+	F.Intrinsic.Control.If(V.Local.iFiles,>,0)
+		F.Automation.PDF.Merge(V.Local.sFileIn,V.Local.sFileOut)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+F.Data.DataTable.SetValue("LINKS",-1,"SELECT",False)
+Program.Sub.cmdLinkSave_Click.End
+
+Program.Sub.cmdExport_Click.Start
+V.Local.sFile.Declare
+
+F.Intrinsic.UI.ShowSaveFileDialog("","*.xlsx|*.xlsx",V.Local.sFile)
+
+F.Intrinsic.Control.If(V.Local.sFile,<>,"***CANCEL***")
+	gui.FrmMaster.GsGCAll.Export(V.Local.sFile,"xlsx")
+	F.Intrinsic.Task.ShellExec(0,"",V.Local.sFile,"","",1)
+F.Intrinsic.Control.EndIf
+Program.Sub.cmdExport_Click.End
+
+Program.Sub.Comments.Start
+${$0$}$GAB Planning Dashboard$}$JTW$}$1/12/2017 1:27:19 PM$}$False
+${$1$}$$}$$}$1$}$16360$}$BMS0020-SCRIPT-1-HOOK$}$3/1/2017 12:34:38 PM$}$(Program: BM0020GI; Screen: BMS0020)
+${$1$}$$}$$}$0$}$16300$}$BMS0020-POPULATE-HOOK$}$3/1/2017 12:33:57 PM$}$(Program: BM0020GI; Screen: BMS0020)
+${$3$}$0$}$$}$0$}$-1$}$$}$12:00:00 AM$}$This dashboard will present the user with a consolidated parts list and allow them to select the source, category, and project group for each item.  The leadtime can also be entered.  A checkbox is on each line to identify what lines have been updated.  When the "Process" button is clicked, the updated lines are written to the Inventory Master and the BOM Master.  This process updates all bills of materials in the BOM master that have a matching part number.
+${$5$}$2.0.0.0$}$2
+${$6$}$dyunus$}$20201125152451364$}$xZ6SHi8g7O0Qsxe6AiO2NH3PnOKQRy0Tb/XtkQ4ntc74/QMOzhiKcCG2tw0yoaKhxCEOqRgP2UY=
+Program.Sub.Comments.End
